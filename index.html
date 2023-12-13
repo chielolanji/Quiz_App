@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+<style>
+    /* Your existing styles here */
+
+    body {
+        background-image: linear-gradient(40deg, pink, red, blue);
+        background-repeat: no-repeat;
+        text-align: center;
+        min-height: 620px;
+        animation: mymove 2s infinite;
+        margin: 0;
+    }
+
+    @keyframes mymove {
+        from {background-image: linear-gradient(40deg, pink, red, blue);}
+        to {background-image: linear-gradient(40deg, whitesmoke, violet, blue);}
+    }
+
+    button {
+        background-color: burlywood;
+        height: 40px;
+        width: 40%; /* Set the width for buttons */
+        border-radius: 10%;
+        border-color: aquamarine;
+        border-style: groove;
+        border-width: 5px;
+        box-shadow: 10px 15px 8px 5px;
+        transition: background-color 0.5s, box-shadow 0.3s; 
+        margin: 5px; /* Add margin for spacing */
+    }
+
+    button:hover {
+        border-color: chartreuse;
+        background-color: blue;
+    }
+
+    button:active {
+        background-color: darkblue; 
+        box-shadow: 2px 4px 4px 6px; 
+    }
+
+    #retake-btn{
+    background-color: coral;
+    color: white;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    border-color: darkorange;
+    border-style: groove;
+    border-width: 5px;
+    box-shadow: 5px 8px 5px 2px;
+    transition: background-color 0.5s, box-shadow 0.3s;
+    margin-top: 20px;
+     }
+
+     #retake-btn:hover {
+    border-color: darkorange;
+    background-color: green;
+    }
+
+    #retake-btn:active {
+    background-color: green;
+    box-shadow: 2px 4px 4px 6px;
+    }
+
+    
+
+
+
+
+    #next-btn {
+    background-color: coral;
+    color: white;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    border-color: darkorange;
+    border-style: groove;
+    border-width: 5px;
+    box-shadow: 5px 8px 5px 2px;
+    transition: background-color 0.5s, box-shadow 0.3s;
+    margin-top: 20px;
+     }
+
+    #next-btn:hover {
+    border-color: darkorange;
+    background-color: crimson;
+    }
+
+    #next-btn:active {
+    background-color: darkred;
+    box-shadow: 2px 4px 4px 6px;
+    }
+
+    h1{
+        font-size: 50px;
+        font-style: italic;
+        color: transparent;
+        background-image: linear-gradient(200deg, red, blue, cyan);
+        background-repeat: no-repeat;
+        background-position: -500px;
+        animation: strmove 3s linear infinite alternate;
+        -webkit-background-clip: text;
+
+    }
+
+    @keyframes strmove {
+        100% {
+            background-position: -0 0;
+        }
+    }
+
+
+    h2 {
+        font-size: 50px;
+        font-style: italic;
+        color: transparent;
+        background-image: linear-gradient(200deg, blue, yellow, orange);
+        background-repeat: no-repeat;
+        background-position: -500px;
+        animation: backcolor 3s linear infinite alternate;
+        -webkit-background-clip: text;
+    }
+
+    @keyframes backcolor {
+        100% {
+            background-position: -0 0;
+        }
+    }
+
+    h3 {
+    font-style: italic;
+    background-image: linear-gradient(180deg, blue, yellow, orange);
+    background-size: 100% 5px; /* Set the background size for the underline */
+    background-repeat: no-repeat;
+    }
+
+
+
+
+    #quiz-container {
+        margin-top: 100px;
+        background-image: linear-gradient(40deg, khaki, salmon);
+        height: 500px;
+        width: 40%;
+        margin: auto;
+        box-shadow: 10px 15px 8px 5px;
+        border-color: cyan;
+        border-style: groove;
+    }
+
+    #review-container {
+        display: none;
+        margin-top: 20px;
+    }
+
+    #review-btn {
+        background-color: burlywood;
+        height: 50px;
+        width: auto;
+        border-radius: 50%;
+        border-color: aquamarine;
+        border-style: groove;
+        border-width: 5px;
+        box-shadow: 10px 15px 8px 5px;
+        transition: background-color 0.5s, box-shadow 0.3s; 
+    }
+
+    #review-btn:hover {
+        border-color: chartreuse;
+        background-color: blue;
+    }
+
+    #review-btn:active {
+        background-color: darkblue; 
+        box-shadow: 2px 4px 4px 6px; 
+    }
+
+    #start-container {
+            margin-top: 100px;
+            background-image: linear-gradient(40deg, khaki, salmon);
+            height: 200px;
+            width: 40%;
+            margin: auto;
+            box-shadow: 10px 15px 8px 5px;
+            border-color: cyan;
+            border-style: groove;
+            margin-top: 50px;
+        }
+
+        #start-btn {
+            background-color: blue;
+            color: white;
+            height: 50px;
+            width: 100px;
+            border-radius: 10px;
+            border-color: gray;
+            border-style: groove;
+            border-width: 5px;
+            box-shadow: 5px 8px 5px 2px;
+            transition: background-color 0.5s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+
+        #start-btn:hover {
+            border-color: red;
+            background-color: goldenrod;
+        }
+
+        #start-btn:active {
+            background-color: greenyellow;
+            box-shadow: 2px 4px 4px 6px;
+        }
+</style>
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+</head>
+<body>
+    <div id="start-container">
+        <button id="start-btn" onclick="startQuiz()">Start Quiz</button>
+        <h1>Quiz Application</h1>
+    </div>
+    <div id="quiz-container" style="display: none;">
+        <h2>Quiz Application</h2>
+        <div id="question-container">
+            <!-- my questions -->
+            <h3 id="question-text">Element contains meta information about the html page</h3>
+            <p id="timer">10</p>
+            <button onclick="checkAnswer('Null')">Venus</button>
+            <button onclick="checkAnswer('h2')">Earth</button>
+            <button onclick="checkAnswer('head')">Saturn</button>
+            <button onclick="checkAnswer('header')">Mars</button>
+        </div>
+        <button id="next-btn" onclick="nextQuestion()">Next</button>
+        <p id="result"></p>
+    </div>
+    
+    <div id="review-container" style="display: none;">
+        <p>Total Score: <span id="total-score"></span></p>
+        <div id="review-answers"></div>
+        <button id="retake-btn" onclick="retakeQuiz()">Retake Quiz</button>
+        <button id="review-btn" onclick="reviewAnswers()">Review Answers</button>
+    </div>
+    <script>
+        // mga questions dito
+        var questions = [
+            {
+                question: "Element contains meta information about the html page",
+                options: ["Null", "h2", "head", "header"],
+                correctAnswer: "head"
+            },
+            {
+                question: "What is the element defines large heading?",
+                options: ["header", "css", "p", "h1"],
+                correctAnswer: "h1"
+            },
+            {
+                question: "a tag used to embed an image in a HTML page",
+                options: ["src", "ufc", "img", "a"],
+                correctAnswer: "img"
+            },
+            {
+                question: "A finite set of steps which, if followed, accomplish a particular task.",
+                options: ["Algorithm", "SQL", "Database", "JS"],
+                correctAnswer: "Algorithm"
+            },
+            {
+                question: "Rules consist of a selector and declaration",
+                options: ["html", "js", "css", "jsons"],
+                correctAnswer: "css"
+            },
+            {
+                question: "A loop within a loop is called?",
+                options: ["While loop", "Nest loop", "for loop", "Nested loop"],
+                correctAnswer: "Nested loop"
+            }
+        ];
+    
+        var userAnswers = [];
+        var currentQuestion = 0;
+        var correctAnswers = 0;
+        var timerSeconds = 10;
+        var timerInterval;
+
+        function startQuiz() {
+            document.getElementById('start-container').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+            showQuestion();
+        }
+
+        
+             // question dito
+        function showQuestion() {
+            var questionContainer = document.getElementById('question-container');
+            questionContainer.innerHTML = `<h3>${questions[currentQuestion].question}</h3>`;
+            questionContainer.innerHTML += `<p id="timer">${timerSeconds}</p>`;
+            for (var i = 0; i < 4; i++) {
+                questionContainer.innerHTML += `<button onclick="checkAnswer('${questions[currentQuestion].options[i]}')">${questions[currentQuestion].options[i]}</button>`;
+            }
+
+            // timer dito
+            timerInterval = setInterval(function () {
+                timerSeconds--;
+                document.getElementById('timer').innerText = timerSeconds;
+
+                
+                if (timerSeconds === 0) {
+                    clearInterval(timerInterval);
+                    nextQuestion();
+                }
+            }, 1000);
+        }
+    
+        function nextQuestion() {
+            clearInterval(timerInterval); 
+            timerSeconds = 10; 
+
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+                resetResult();
+            } else {
+                displayResult();
+            }
+        }
+    
+        function displayResult() {
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('review-container').style.display = 'block';
+    
+            var totalScore = (correctAnswers / questions.length) * 100;
+            document.getElementById('total-score').innerText = totalScore.toFixed(2) + '%';
+        }
+    
+        function checkAnswer(selectedAnswer) {
+            userAnswers[currentQuestion] = selectedAnswer;
+    
+            if (selectedAnswer === questions[currentQuestion].correctAnswer) {
+                correctAnswers++;
+                document.getElementById('result').innerHTML = "Correct!";
+                document.getElementById('result').style.color = "green";
+            } else {
+                document.getElementById('result').innerHTML = "Incorrect.";
+                document.getElementById('result').style.color = "red";
+            }
+        }
+    
+        function resetResult() {
+            document.getElementById('result').innerHTML = "";
+            document.getElementById('result').style.color = "";
+        }
+    
+        function retakeQuiz() {
+            currentQuestion = 0;
+            correctAnswers = 0;
+            userAnswers = [];
+            document.getElementById('quiz-container').style.display = 'block';
+            document.getElementById('review-container').style.display = 'none';
+            showQuestion();
+        }
+    
+        function showReviewAnswers() {
+            var reviewAnswersContainer = document.getElementById('review-answers');
+            reviewAnswersContainer.innerHTML = "<h3>Review Answers:</h3>";
+    
+            for (var i = 0; i < questions.length; i++) {
+                reviewAnswersContainer.innerHTML += `<p>${i + 1}. ${questions[i].question}</p>`;
+                reviewAnswersContainer.innerHTML += `<p>Your Answer: ${userAnswers[i] || "Not answered"}</p>`;
+                reviewAnswersContainer.innerHTML += `<p>Correct Answer: ${questions[i].correctAnswer}</p>`;
+                reviewAnswersContainer.innerHTML += "<hr>";
+            }
+        }
+    
+        function reviewAnswers() {
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('review-container').style.display = 'block';
+            showReviewAnswers();
+
+        }
+
+        function displayResult() {
+            var totalScore = (correctAnswers / questions.length) * 100;
+            document.getElementById('total-score').innerText = totalScore.toFixed(2) + '%';
+
+            if (totalScore >= 75) {
+                alert("Congratulations! You passed!");
+            } else {
+                alert("Keep going! Retake the quiz to see how much more you can achieve.");
+            }
+
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('review-container').style.display = 'block';
+            
+            
+            if (currentQuestion === questions.length) {
+                document.getElementById('start-container').style.display = 'none';
+            }
+        }
+
+
+        
+    
+        showQuestion();  
+    </script>
+    
+</body>
+</html>  
